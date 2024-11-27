@@ -27,7 +27,7 @@ env:
   DBT_ACCOUNT_ID: 51798 # enter your account id
   DBT_CLOUD_RUN_ID: 345709384
   DBT_API_KEY: ${{ secrets.DBT_API_KEY }}
-  DBT_ARTIFACTS_URL: https://cloud.getdbt.com/api/v2/accounts/${DBT_ACCOUNT_ID}/runs/${DBT_CLOUD_RUN_ID}/artifacts
+  DBT_ARTIFACTS_URL: https://cloud.getdbt.com/api/v2/accounts/51798/runs/345709384/artifacts
 
 jobs:
   docs:
