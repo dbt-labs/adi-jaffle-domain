@@ -40,11 +40,11 @@ jobs:
       - name: fetch artifacts
         run: |
           mkdir pages && cd pages
-          curl -H "Authorization: Bearer $DBT_CLOUD_TOKEN" \
+          curl -H "Authorization: Bearer $DBT_API_KEY" \
             "$DBT_ARTIFACTS_URL/manifest.json" --output manifest.json
-          curl -H "Authorization: Bearer $DBT_CLOUD_TOKEN" \
+          curl -H "Authorization: Bearer $DBT_API_KEY" \
             "$DBT_ARTIFACTS_URL/catalog.json" --output catalog.json
-          curl -H "Authorization: Bearer $DBT_CLOUD_TOKEN" \
+          curl -H "Authorization: Bearer $DBT_API_KEY" \
             "$DBT_ARTIFACTS_URL/index.html" --output index.html
           cd ..
 
