@@ -39,18 +39,19 @@ jobs:
 
       - name: fetch artifacts
         run: |
-          mkdir pages
+          mkdir pages && cd pages
           curl -H "Authorization: Bearer $DBT_CLOUD_TOKEN" \
-            "$DBT_ARTIFACTS_URL/manifest.json" --output ./pages/manifest.json
+            "$DBT_ARTIFACTS_URL/manifest.json" --output manifest.json
           curl -H "Authorization: Bearer $DBT_CLOUD_TOKEN" \
-            "$DBT_ARTIFACTS_URL/catalog.json" --output ./pages/catalog.json
+            "$DBT_ARTIFACTS_URL/catalog.json" --output catalog.json
           curl -H "Authorization: Bearer $DBT_CLOUD_TOKEN" \
-            "$DBT_ARTIFACTS_URL/index.html" --output ./pages/index.html
+            "$DBT_ARTIFACTS_URL/index.html" --output index.html
+          cd ..
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./pages
+          path: ./pages/
 
   # Deployment job
   deploy:
